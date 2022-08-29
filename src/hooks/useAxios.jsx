@@ -1,39 +1,22 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-
-
-// const useAxios = async () => {
-        
-// const [data, setData] = useState([]);
-
-//     useEffect(() => {
-//         axios("http://localhost:3080/experiencias/ver").then(res => {
-//             setData(res.data)
-//             console.log(res.data)
-//         })
-//     }, [])
-
-//     return {data}
-// }
-
-// export default useAxios
-
-// export function useAxios(url) {
-//     const [data, setData] = useState([]);
-
-//     useEffect(() => {
-//         axios(url)
-//         .then(res => setData(res.data))
-//     }, [])
-// }
-
-
-// export function useAxios(url) {
-//     const [data, setData] = useState([]);
-    
-//   useEffect(() => {
-//     axios(url)
-//       .then(res => setData(res.data))
-//   }, []);
-//   return {data};
-// };
+import axios from "axios";
+import { useState, useEffect } from "react";
+const useAxios = (endPoint) => {
+  const [data, setData] = useState([]);
+  const [errMsg, setErrMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const getInfo = async () => {
+      try {
+        const res = await axios.get(endPoint);
+        setData(res.data.experiencias);
+      } catch (error) {
+        setErrMsg(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getInfo();
+  }, [endPoint]);
+  return { data, errMsg, isLoading };
+};
+export default useAxios;
