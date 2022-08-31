@@ -28,10 +28,11 @@ const Skills = () => {
             </button>
         </h4>
       <div>
+        <div className="Seccion">
       {
              data.length !== 0 && data.map((item) => {
               return (
-                  <div className="listaskills" key={item.codigo}>
+                  <div className="Seccion" key={item.codigo}>
                   <p ><span className="educacion">{item.nombre} </span></p>       
                   <div style={{ width: 100, height: 100 }}>
                     <CircularProgressbar value={item.progreso} text={item.progreso} />
@@ -42,6 +43,7 @@ const Skills = () => {
               )
           })
           }
+        </div>
 
         {/* <div className="listaskills">
             <p ><span className="educacion">Resolución de problemas </span></p>

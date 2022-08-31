@@ -21,7 +21,7 @@ return (
                     <div className='persona'>
                         {/* aca ira el ngfor para mapear */}
                         <h1 id='info-name'>Christian Daniel Calleja</h1>
-                        <div><span id='info-position'>Abogado y Desarrollador Web FullStack</span></div>
+                        <div><span id='info-position'>Abogado y FullStack MERN Developer | React Js | Node Js | Express | MongoDB</span></div>
                         <div id='info-contact'>
                             <span id='info-ubication'> Buenos Aires (Argentina)</span>
                             <br />
