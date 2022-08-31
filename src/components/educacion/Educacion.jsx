@@ -1,22 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import './educacion.css'
-import { useEffect, useState } from "react";
-import axios from "axios";
-// import useAxios from "../../hooks/useAxios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
+import useAxios from "../../hooks/useAxios";
 
 const Educacion = () => {
 
  
-  // const {data: estudios, isLoading: isInfoLoading, error: infoError} = useAxios('http://localhost:3080/estudios/ver')
+  const {data: estudios, isLoading: isInfoLoading, error: infoError} = useAxios('http://localhost:3080/estudios/ver')
 
-  const [data, setData] = useState([]);
-  useEffect(() => {
-   axios('http://localhost:3080/estudios/ver').then (res => {
-       setData(res.data.estudios)
-       console.log(res.data.estudios)
-   })
-  }, [])
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //  axios('http://localhost:3080/estudios/ver').then (res => {
+  //      setData(res.data.estudios)
+  //      console.log(res.data.estudios)
+  //  })
+  // }, [])
 
   return (
     <>
@@ -30,7 +30,7 @@ const Educacion = () => {
         </h4>
       <div>
         <div className="listaeducaciones">
-          {
+          {/* {
              data.length !== 0 && data.map((item) => {
               return (
                   <div className="listaeducacionesparrafos" key={item.codigo}>
@@ -41,9 +41,9 @@ const Educacion = () => {
                   </div>
               )
           })
-          }
+          } */}
 
-          {/* {
+          {
             
             infoError.isError ? <h4> Error : {infoError.message}</h4> :
             isInfoLoading ? <h4> Cargando ... </h4> : 
@@ -59,7 +59,7 @@ const Educacion = () => {
               )
             })
 
-          } */}
+          }
         </div>
       </div>
     </div>
